@@ -1,0 +1,395 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>News.Abstractions</name>
+    </assembly>
+    <members>
+        <member name="T:News.Abstractions.Entities.IEntity`2">
+            <summary>
+            Represents an entity of a news portal.
+            </summary>
+            <typeparam name="TID">The type of the identifier of the entity.</typeparam>
+            <typeparam name="TModel">The type of the model of the entity.</typeparam>
+        </member>
+        <member name="P:News.Abstractions.Entities.IEntity`2.Id">
+            <summary>
+            Gets the identifier of the <see cref="T:News.Abstractions.Entities.IEntity`2"/>.
+            </summary>
+        </member>
+        <member name="P:News.Abstractions.Entities.IEntity`2.Model">
+            <summary>
+            Gets the model of the <see cref="T:News.Abstractions.Entities.IEntity`2"/>.
+            </summary>
+        </member>
+        <member name="T:News.Abstractions.Models.IStoryModel">
+            <summary>
+            Represents a model of a story to be read by clients of a news portal.
+            </summary>
+        </member>
+        <member name="P:News.Abstractions.Models.IStoryModel.Title">
+            <summary>
+            Gets or sets the title of the story.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">The specified value is <see langword="null"/>.</exception>
+        </member>
+        <member name="P:News.Abstractions.Models.IStoryModel.Summary">
+            <summary>
+            Gets or sets the summary of the story.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">The specified value is <see langword="null"/>.</exception>
+        </member>
+        <member name="P:News.Abstractions.Models.IStoryModel.Text">
+            <summary>
+            Gets or sets the text of the story.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">The specified value is <see langword="null"/>.</exception>
+        </member>
+        <member name="P:News.Abstractions.Models.IStoryModel.PictureUrl">
+            <summary>
+            Gets or sets the URL of the picture describing the story.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">The specified value is <see langword="null"/>.</exception>
+        </member>
+        <member name="T:News.Abstractions.Models.IUserModel">
+            <summary>
+            Represents a model of a user of a news portal.
+            </summary>
+        </member>
+        <member name="P:News.Abstractions.Models.IUserModel.Email">
+            <summary>
+            Gets or sets the login of the user.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">The specified value is <see langword="null"/>.</exception>
+        </member>
+        <member name="P:News.Abstractions.Models.IUserModel.Login">
+            <summary>
+            Gets or sets the login of the user.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">The specified value is <see langword="null"/>.</exception>
+        </member>
+        <member name="P:News.Abstractions.Models.IUserModel.PasswordHash">
+            <summary>
+            Gets or sets the hash of the password of the user.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">The specified value is <see langword="null"/>.</exception>
+        </member>
+        <member name="P:News.Abstractions.Models.IUserModel.Surname">
+            <summary>
+            Gets or sets the surname of the user.
+            </summary>
+        </member>
+        <member name="P:News.Abstractions.Models.IUserModel.Name">
+            <summary>
+            Gets or sets the name of the user.
+            </summary>
+        </member>
+        <member name="P:News.Abstractions.Models.IUserModel.Patronymic">
+            <summary>
+            Gets or sets the patronymic of the user.
+            </summary>
+        </member>
+        <member name="P:News.Abstractions.Models.IUserModel.BirthDate">
+            <summary>
+            Gets or sets the date of birth of the user.
+            </summary>
+        </member>
+        <member name="P:News.Abstractions.Models.IUserModel.Role">
+            <summary>
+            Gets or sets the role of the user.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">The specified value is out of range of valid values.</exception>
+        </member>
+        <member name="T:News.Abstractions.Repositories.IEntityRepository`2">
+            <summary>
+            Represents a repository of entities of a news portal.
+            </summary>
+            <typeparam name="TID">The type of entity identifiers.</typeparam>
+            <typeparam name="TModel">The type of the model of the entities.</typeparam>
+        </member>
+        <member name="M:News.Abstractions.Repositories.IEntityRepository`2.Commit">
+            <summary>
+            Commits the made changes in the repository.
+            </summary>
+            <returns>A task that represents the commit operation.</returns>
+        </member>
+        <member name="M:News.Abstractions.Repositories.IEntityRepository`2.AddAsync(`1)">
+            <summary>
+            Asynchronously adds a entity to the repository.
+            </summary>
+            <param name="model">The model of the entity.</param>
+            <returns>A task that represents the add operation. The task result contains the entity.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="model"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Abstractions.Repositories.IEntityRepository`2.GetAsync">
+            <summary>
+            Asynchronously gets entities from the repository.
+            </summary>
+            <returns>A task that represents the get operation. The task result contains the entities.</returns>
+        </member>
+        <member name="M:News.Abstractions.Repositories.IEntityRepository`2.GetAsync(`0)">
+            <summary>
+            Asynchronously gets an entity from the repository.
+            </summary>
+            <param name="id">The identifier of the entity.</param>
+            <returns>A task that represents the get operation. The task result contains the entity.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="id"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Abstractions.Repositories.IEntityRepository`2.UpdateAsync(News.Abstractions.Entities.IEntity{`0,`1})">
+            <summary>
+            Asynchronously updates the model of an entity in the repository.
+            </summary>
+            <param name="entity">The entity.</param>
+            <returns>A task that represents the update operation.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="entity"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Abstractions.Repositories.IEntityRepository`2.RemoveAsync(`0)">
+            <summary>
+            Asynchronously removes an entity from the repository.
+            </summary>
+            <param name="id">The identifier of the entity.</param>
+            <returns>A task that represents the remove operation. The task result contains value that indicates whether the entity has been removed.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="id"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="T:News.Abstractions.Repositories.IStoryRepository`1">
+            <summary>
+            Represents a repository of stories of a news portal.
+            </summary>
+            <typeparam name="TID">The type of story identifiers.</typeparam>
+        </member>
+        <member name="T:News.Abstractions.Repositories.IUserRepository`1">
+            <summary>
+            Represents a repository of users of a news portal.
+            </summary>
+            <typeparam name="TID">The type of user identifiers.</typeparam>
+        </member>
+        <member name="M:News.Abstractions.Repositories.IUserRepository`1.Contains(System.String,System.String)">
+            <summary>
+            Asynchronously determines whether the user with a login or an email is contained.
+            </summary>
+            <param name="email">The email.</param>
+            <param name="login">The login.</param>
+            <returns>A task that represents the detemine operation. The task result contains the value that indicates whether the user is contained.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="login"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="email"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Abstractions.Repositories.IUserRepository`1.GetByLoginAsync(System.String)">
+            <summary>
+            Asynchronously gets a user by a login.
+            </summary>
+            <param name="login">The login.</param>
+            <returns>A task that represents the get operation. The task result contains the user.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="login"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Abstractions.Repositories.IUserRepository`1.GetAsync(News.Abstractions.ValueTypes.UserSortKind,System.Int32,System.Int32,System.String)">
+            <summary>
+            Asynchronously gets a number of users from the repository filtered by a search string.
+            </summary>
+            <param name="sortKind">A <see cref="T:News.Abstractions.ValueTypes.UserSortKind"/> that specifies the kind of sorting of getting users.</param>
+            <param name="offset">The number of the first of sorted users to get.</param>
+            <param name="count">The number of users to get.</param>
+            <param name="search">The search string.</param>
+            <returns>A task that represents the get operation. The task result contains the users.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="sortKind"/> is out of range of valid values.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="offset"/> is less than 0.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="count"/> is less than 0.</exception>
+        </member>
+        <member name="T:News.Abstractions.Services.IModelFactory">
+            <summary>
+            Represents a service of creation of data models of a news portal.
+            </summary>
+        </member>
+        <member name="M:News.Abstractions.Services.IModelFactory.CreateStory">
+            <summary>
+            Creates an <see cref="T:News.Abstractions.Models.IStoryModel"/>.
+            </summary>
+            <returns>An <see cref="T:News.Abstractions.Models.IStoryModel"/>.</returns>
+        </member>
+        <member name="M:News.Abstractions.Services.IModelFactory.CreateUser">
+            <summary>
+            Creates an <see cref="T:News.Abstractions.Models.IUserModel"/>.
+            </summary>
+            <returns>An <see cref="T:News.Abstractions.Models.IUserModel"/>.</returns>
+        </member>
+        <member name="T:News.Abstractions.Services.IStoryService`1">
+            <summary>
+            Represents a story management service base of a news portal.
+            </summary>
+            <typeparam name="TID">The type of story identifiers.</typeparam>
+        </member>
+        <member name="M:News.Abstractions.Services.IStoryService`1.AddAsync(News.Abstractions.Models.IStoryModel)">
+            <summary>
+            Asynchronously adds a new story to the news portal.
+            </summary>
+            <param name="model">The model of the story.</param>
+            <returns>A task that represents the add operation. The task result contains the story.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="model"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Abstractions.Services.IStoryService`1.GetAsync">
+            <summary>
+            Asynchronously gets stories from the news portal.
+            </summary>
+            <returns>A task that represents the get operation. The task result contains the stories.</returns>
+        </member>
+        <member name="M:News.Abstractions.Services.IStoryService`1.GetAsync(`0)">
+            <summary>
+            Asynchronously gets a story from the news portal.
+            </summary>
+            <param name="id">The identifier of the story.</param>
+            <returns>A task that represents the get operation. The task result contains the story.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="id"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Abstractions.Services.IStoryService`1.ChangeAsync(`0,News.Abstractions.Models.IStoryModel)">
+            <summary>
+            Asynchronously changes a story in the news portal.
+            </summary>
+            <param name="id">The identifier of the story.</param>
+            <param name="model">The new model of the story.</param>
+            <returns>A task that represents the change operation. The task result contains value that indicates whether the story has been changed.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="id"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="model"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Abstractions.Services.IStoryService`1.RemoveAsync(`0)">
+            <summary>
+            Asynchronously removes a story from the news portal.
+            </summary>
+            <param name="id">The identifier of the story.</param>
+            <returns>A task that represents the remove operation. The task result contains value that indicates whether the story has been removed.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="id"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="T:News.Abstractions.Services.IUserService`1">
+            <summary>
+            Represents a user management service base of a news portal.
+            </summary>
+            <typeparam name="TID">The type of user identifiers.</typeparam>
+        </member>
+        <member name="M:News.Abstractions.Services.IUserService`1.AddAsync(News.Abstractions.Models.IUserModel)">
+            <summary>
+            Asynchronously adds a new user to the news portal.
+            </summary>
+            <param name="model">The model of the user.</param>
+            <returns>A task that represents the add operation. The task result contains the user whether the user has been added.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="model"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Abstractions.Services.IUserService`1.GetByAuthorizationDataAsync(System.String,System.String)">
+            <summary>
+            Asynchronously gets a user by a login and a password.
+            </summary>
+            <param name="login">The login.</param>
+            <param name="password">The password.</param>
+            <returns>A task that represents the get operation. The task result contains the user.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="login"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="password"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Abstractions.Services.IUserService`1.GetAsync(News.Abstractions.ValueTypes.UserSortKind,System.Int32,System.Int32,System.String)">
+            <summary>
+            Asynchronously gets a number of users filterd by a search string from the news portal.
+            </summary>
+            <param name="sortKind">A <see cref="T:News.Abstractions.ValueTypes.UserSortKind"/> that specifies the kind of sorting of getting users.</param>
+            <param name="offset">The number of the first of sorted users to get.</param>
+            <param name="count">The number of users to get.</param>
+            <param name="search">The search string.</param>
+            <returns>A task that represents the get operation. The task result contains the users.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="sortKind"/> is out of range of valid values.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="offset"/> is less than 0.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="count"/> is less than 0.</exception>
+        </member>
+        <member name="M:News.Abstractions.Services.IUserService`1.ChangeAsync(`0,News.Abstractions.Models.IUserModel)">
+            <summary>
+            Asynchronously changes a user in the news portal.
+            </summary>
+            <param name="id">The identifier of the user.</param>
+            <param name="model">The new model of the user.</param>
+            <returns>A task that represents the change operation. If the task result is <see langword="true"/> the user has been changed; if the task result is <see langword="null"/> the user was not found; otherwise, the user with the specified email or login already exists.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="id"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="model"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Abstractions.Services.IUserService`1.RemoveAsync(`0)">
+            <summary>
+            Asynchronously removes a user from the news portal.
+            </summary>
+            <param name="id">The identifier of the user.</param>
+            <returns>A task that represents the remove operation. The task result contains value that indicates whether the user has been removed.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="id"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="T:News.Abstractions.ValueTypes.UserRole">
+            <summary>
+            Specifies the roles of users of a news portal.
+            </summary>
+        </member>
+        <member name="F:News.Abstractions.ValueTypes.UserRole.Min">
+            <summary>
+            Specifies the minimum role value.
+            </summary>
+        </member>
+        <member name="F:News.Abstractions.ValueTypes.UserRole.Max">
+            <summary>
+            Specifies the maximum role value.
+            </summary>
+        </member>
+        <member name="F:News.Abstractions.ValueTypes.UserRole.Admin">
+            <summary>
+            Specifies the administrator role of a news portal.
+            </summary>
+        </member>
+        <member name="F:News.Abstractions.ValueTypes.UserRole.Editor">
+            <summary>
+            Specifies the editor role of a news portal.
+            </summary>
+        </member>
+        <member name="T:News.Abstractions.ValueTypes.UserSortKind">
+            <summary>
+            Specifies the kinds of user sorting.
+            </summary>
+        </member>
+        <member name="F:News.Abstractions.ValueTypes.UserSortKind.Min">
+            <summary>
+            Specifies the minimum sort kind.
+            </summary>
+        </member>
+        <member name="F:News.Abstractions.ValueTypes.UserSortKind.Max">
+            <summary>
+            Specifies the maximum sort kind.
+            </summary>
+        </member>
+        <member name="F:News.Abstractions.ValueTypes.UserSortKind.None">
+            <summary>
+            Specifies the lack of any sorting.
+            </summary>
+        </member>
+        <member name="F:News.Abstractions.ValueTypes.UserSortKind.Email">
+            <summary>
+            Specifies the sorting by user emails.
+            </summary>
+        </member>
+        <member name="F:News.Abstractions.ValueTypes.UserSortKind.Login">
+            <summary>
+            Specifies the sorting by user logins.
+            </summary>
+        </member>
+        <member name="F:News.Abstractions.ValueTypes.UserSortKind.Surname">
+            <summary>
+            Specifies the sorting by user surnames.
+            </summary>
+        </member>
+        <member name="F:News.Abstractions.ValueTypes.UserSortKind.Name">
+            <summary>
+            Specifies the sorting by user names.
+            </summary>
+        </member>
+        <member name="F:News.Abstractions.ValueTypes.UserSortKind.Patronymic">
+            <summary>
+            Specifies the sorting by user patronymics.
+            </summary>
+        </member>
+        <member name="F:News.Abstractions.ValueTypes.UserSortKind.BirthDate">
+            <summary>
+            Specifies the sorting by user birth dates.
+            </summary>
+        </member>
+        <member name="F:News.Abstractions.ValueTypes.UserSortKind.Role">
+            <summary>
+            Specifies the sorting by user roles.
+            </summary>
+        </member>
+    </members>
+</doc>

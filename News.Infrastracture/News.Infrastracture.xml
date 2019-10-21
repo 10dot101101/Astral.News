@@ -1,0 +1,582 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>News.Infrastracture</name>
+    </assembly>
+    <members>
+        <member name="T:News.Infrastracture.DataContexts.DataContext">
+            <summary>
+            Represents a context of data of a news portal.
+            </summary>
+        </member>
+        <member name="M:News.Infrastracture.DataContexts.DataContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions)">
+            <summary>
+            Initializes the <see cref="T:News.Infrastracture.DataContexts.DataContext"/>.
+            </summary>
+            <param name="options">The options to configure the <see cref="T:News.Infrastracture.DataContexts.DataContext"/>.</param>
+        </member>
+        <member name="P:News.Infrastracture.DataContexts.DataContext.Stories">
+            <summary>
+            Gets the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> of stories of the news portal.
+            </summary>
+        </member>
+        <member name="P:News.Infrastracture.DataContexts.DataContext.Users">
+            <summary>
+            Gets the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> of users of the news portal.
+            </summary>
+        </member>
+        <member name="P:News.Infrastracture.DataContexts.DataContext.UserEmailConfirmations">
+            <summary>
+            Gets the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> of user email confirmations the news portal.
+            </summary>
+        </member>
+        <member name="M:News.Infrastracture.DataContexts.DataContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Configures the schema needed for the identity framework.
+            </summary>
+            <param name="builder">The builder being used to construct the model for this context.</param>
+        </member>
+        <member name="T:News.Infrastracture.Entities.Story">
+            <summary>
+            Represents a story to be read by clients of a news portal.
+            </summary>
+        </member>
+        <member name="M:News.Infrastracture.Entities.Story.#ctor">
+            <summary>
+            Initializes the <see cref="T:News.Infrastracture.Entities.Story"/>.
+            </summary>
+        </member>
+        <member name="M:News.Infrastracture.Entities.Story.#ctor(News.Infrastracture.Models.StoryModel)">
+            <summary>
+            Initializes the <see cref="T:News.Infrastracture.Entities.Story"/>.
+            </summary>
+            <param name="model">The model of the <see cref="T:News.Infrastracture.Entities.Story"/>.</param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="model"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="P:News.Infrastracture.Entities.Story.Id">
+            <summary>
+            Gets the identifier of the <see cref="T:News.Infrastracture.Entities.Story"/>.
+            </summary>
+        </member>
+        <member name="P:News.Infrastracture.Entities.Story.Model">
+            <summary>
+            Gets the model of the <see cref="T:News.Infrastracture.Entities.Story"/>.
+            </summary>
+        </member>
+        <member name="T:News.Infrastracture.Entities.User">
+            <summary>
+            Represents a user of a news portal.
+            </summary>
+        </member>
+        <member name="M:News.Infrastracture.Entities.User.#ctor">
+            <summary>
+            Initializes the <see cref="T:News.Infrastracture.Entities.User"/>.
+            </summary>
+        </member>
+        <member name="M:News.Infrastracture.Entities.User.#ctor(News.Infrastracture.Models.UserModel)">
+            <summary>
+            Initializes the <see cref="T:News.Infrastracture.Entities.User"/>.
+            </summary>
+            <param name="model">The model of the <see cref="T:News.Infrastracture.Entities.User"/>.</param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="model"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="P:News.Infrastracture.Entities.User.Id">
+            <summary>
+            Gets the identifier of the <see cref="T:News.Infrastracture.Entities.User"/>.
+            </summary>
+        </member>
+        <member name="P:News.Infrastracture.Entities.User.EmailConfirmed">
+            <summary>
+            Gets the value that indicates whether the email of the <see cref="T:News.Infrastracture.Entities.User"/> is confirmed.
+            </summary>
+        </member>
+        <member name="P:News.Infrastracture.Entities.User.Model">
+            <summary>
+            Gets the model of the <see cref="T:News.Infrastracture.Entities.User"/>.
+            </summary>
+        </member>
+        <member name="T:News.Infrastracture.Entities.UserEmailConfirmation">
+            <summary>
+            Represents a user of a news portal.
+            </summary>
+        </member>
+        <member name="M:News.Infrastracture.Entities.UserEmailConfirmation.#ctor">
+            <summary>
+            Initializes the <see cref="T:News.Infrastracture.Entities.UserEmailConfirmation"/>.
+            </summary>
+        </member>
+        <member name="M:News.Infrastracture.Entities.UserEmailConfirmation.#ctor(System.Guid,News.Infrastracture.Entities.User)">
+            <summary>
+            Initializes the <see cref="P:News.Infrastracture.Entities.UserEmailConfirmation.ConfirmationUser"/>.
+            </summary>
+            <param name="id">The id of the confirmation.</param>
+            <param name="user">The user whose email is to be confirmed.</param>
+            <exception cref="T:System.ArgumentNullException"> <paramref name="user"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="P:News.Infrastracture.Entities.UserEmailConfirmation.Id">
+            <summary>
+            Gets the id of the confirmation.
+            </summary>
+        </member>
+        <member name="P:News.Infrastracture.Entities.UserEmailConfirmation.ConfirmationUserID">
+            <summary>
+            Gets the identifier of the <see cref="P:News.Infrastracture.Entities.UserEmailConfirmation.ConfirmationUser"/>.
+            </summary>
+        </member>
+        <member name="P:News.Infrastracture.Entities.UserEmailConfirmation.ConfirmationUser">
+            <summary>
+            Gets the user whose email is to be confirmed.
+            </summary>
+        </member>
+        <member name="T:News.Infrastracture.Models.StoryModel">
+            <summary>
+            Represents a model of a story to be read by clients of a news portal.
+            </summary>
+        </member>
+        <member name="P:News.Infrastracture.Models.StoryModel.Title">
+            <summary>
+            Gets or sets the title of the story.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">The specified value is <see langword="null"/>.</exception>
+        </member>
+        <member name="P:News.Infrastracture.Models.StoryModel.Summary">
+            <summary>
+            Gets or sets the summary of the story.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">The specified value is <see langword="null"/>.</exception>
+        </member>
+        <member name="P:News.Infrastracture.Models.StoryModel.Text">
+            <summary>
+            Gets or sets the text of the story.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">The specified value is <see langword="null"/>.</exception>
+        </member>
+        <member name="P:News.Infrastracture.Models.StoryModel.PictureUrl">
+            <summary>
+            Gets or sets the URL of the picture describing the story.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">The specified value is <see langword="null"/>.</exception>
+        </member>
+        <member name="T:News.Infrastracture.Models.UserModel">
+            <summary>
+            Represents a model of a user of a news portal.
+            </summary>
+        </member>
+        <member name="P:News.Infrastracture.Models.UserModel.Email">
+            <summary>
+            Gets or sets the login of a user.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">The specified value is <see langword="null"/>.</exception>
+        </member>
+        <member name="P:News.Infrastracture.Models.UserModel.Login">
+            <summary>
+            Gets or sets the login of a user.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">The specified value is <see langword="null"/>.</exception>
+        </member>
+        <member name="P:News.Infrastracture.Models.UserModel.PasswordHash">
+            <summary>
+            Gets the hash of the password of a user.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">The specified value is <see langword="null"/>.</exception>
+        </member>
+        <member name="P:News.Infrastracture.Models.UserModel.Surname">
+            <summary>
+            Gets or sets the surname of a user.
+            </summary>
+        </member>
+        <member name="P:News.Infrastracture.Models.UserModel.Name">
+            <summary>
+            Gets or sets the name of a user.
+            </summary>
+        </member>
+        <member name="P:News.Infrastracture.Models.UserModel.Patronymic">
+            <summary>
+            Gets or sets the patronymic of a user.
+            </summary>
+        </member>
+        <member name="P:News.Infrastracture.Models.UserModel.BirthDate">
+            <summary>
+            Gets or sets the date of birth of a user.
+            </summary>
+        </member>
+        <member name="P:News.Infrastracture.Models.UserModel.Role">
+            <summary>
+            Gets or sets the role of a user.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">The specified value is <see langword="null"/>.</exception>
+        </member>
+        <member name="T:News.Infrastracture.Repositories.StoryRepository">
+            <summary>
+            Represents a repository of stories of a news portal.
+            </summary>
+        </member>
+        <member name="M:News.Infrastracture.Repositories.StoryRepository.#ctor(News.Infrastracture.DataContexts.DataContext)">
+            <summary>
+            Initializes the <see cref="T:News.Infrastracture.Repositories.UserRepository"/>.
+            </summary>
+            <param name="dataContext">The <see cref="T:News.Infrastracture.DataContexts.DataContext"/> of data of the news portal.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="dataContext"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Infrastracture.Repositories.StoryRepository.Commit">
+            <summary>
+            Commits the made changes in the repository.
+            </summary>
+            <returns>A task that represents the commit operation.</returns>
+        </member>
+        <member name="M:News.Infrastracture.Repositories.StoryRepository.AddAsync(News.Abstractions.Models.IStoryModel)">
+            <summary>
+            Asynchronously adds a user to the repository.
+            </summary>
+            <param name="model">The model of the user.</param>
+            <returns>A task that represents the add operation. The task result contains the user.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="model"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Infrastracture.Repositories.StoryRepository.GetAsync">
+            <summary>
+            Asynchronously gets users from the repository.
+            </summary>
+            <returns>A task that represents the get operation. The task result contains the users.</returns>
+        </member>
+        <member name="M:News.Infrastracture.Repositories.StoryRepository.GetAsync(System.Int32)">
+            <summary>
+            Asynchronously gets an user from the repository.
+            </summary>
+            <param name="id">The identifier of the user.</param>
+            <returns>A task that represents the get operation. The task result contains the user.</returns>
+        </member>
+        <member name="M:News.Infrastracture.Repositories.StoryRepository.UpdateAsync(News.Abstractions.Entities.IEntity{System.Int32,News.Abstractions.Models.IStoryModel})">
+            <summary>
+            Asynchronously updates the model of an user in the repository.
+            </summary>
+            <param name="story">The user.</param>
+            <returns>A task that represents the update operation.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="story"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Infrastracture.Repositories.StoryRepository.RemoveAsync(System.Int32)">
+            <summary>
+            Asynchronously removes an user from the repository.
+            </summary>
+            <param name="id">The identifier of the user.</param>
+            <returns>A task that represents the remove operation. The task result contains value that indicates whether the story has been removed.</returns>
+        </member>
+        <member name="T:News.Infrastracture.Repositories.UserRepository">
+            <summary>
+            Represents a repository of users of a news portal.
+            </summary>
+        </member>
+        <member name="M:News.Infrastracture.Repositories.UserRepository.#ctor(News.Infrastracture.DataContexts.DataContext)">
+            <summary>
+            Initializes the <see cref="T:News.Infrastracture.Repositories.UserRepository"/>.
+            </summary>
+            <param name="dataContext">The <see cref="T:News.Infrastracture.DataContexts.DataContext"/> of data of the news portal.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="dataContext"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Infrastracture.Repositories.UserRepository.Commit">
+            <summary>
+            Commits the made changes in the repository.
+            </summary>
+            <returns>A task that represents the commit operation.</returns>
+        </member>
+        <member name="M:News.Infrastracture.Repositories.UserRepository.AddAsync(News.Abstractions.Models.IUserModel)">
+            <summary>
+            Asynchronously adds a user to the repository.
+            </summary>
+            <param name="model">The model of the user.</param>
+            <returns>A task that represents the add operation. The task result contains the user.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="model"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Infrastracture.Repositories.UserRepository.GetAsync">
+            <summary>
+            Asynchronously gets users from the repository.
+            </summary>
+            <returns>A task that represents the get operation. The task result contains the users.</returns>
+        </member>
+        <member name="M:News.Infrastracture.Repositories.UserRepository.GetAsync(System.Int32)">
+            <summary>
+            Asynchronously gets an user from the repository.
+            </summary>
+            <param name="id">The identifier of the user.</param>
+            <returns>A task that represents the get operation. The task result contains the user.</returns>
+        </member>
+        <member name="M:News.Infrastracture.Repositories.UserRepository.Contains(System.String,System.String)">
+            <summary>
+            Asynchronously determines whether the user with a login or an email is contained.
+            </summary>
+            <param name="email">The email.</param>
+            <param name="login">The login.</param>
+            <returns>A task that represents the detemine operation. The task result contains the value that indicates whether the user is contained.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="login"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="email"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Infrastracture.Repositories.UserRepository.GetByLoginAsync(System.String)">
+            <summary>
+            Asynchronously gets a user by a login.
+            </summary>
+            <param name="login">The login.</param>
+            <returns>A task that represents the get operation. The task result contains the user.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="login"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Infrastracture.Repositories.UserRepository.GetAsync(News.Abstractions.ValueTypes.UserSortKind,System.Int32,System.Int32,System.String)">
+            <summary>
+            Asynchronously gets a number of users from the repository filtered by a search string.
+            </summary>
+            <param name="sortKind">A <see cref="T:News.Abstractions.ValueTypes.UserSortKind"/> that specifies the kind of sorting of getting users.</param>
+            <param name="offset">The number of the first of sorted users to get.</param>
+            <param name="count">The number of users to get.</param>
+            <param name="search">The search string.</param>
+            <returns>A task that represents the get operation. The task result contains the users.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="sortKind"/> is out of range of valid values.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="offset"/> is less than 0.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="count"/> is less than 0.</exception>
+        </member>
+        <member name="M:News.Infrastracture.Repositories.UserRepository.UpdateAsync(News.Abstractions.Entities.IEntity{System.Int32,News.Abstractions.Models.IUserModel})">
+            <summary>
+            Asynchronously updates the model of an user in the repository.
+            </summary>
+            <param name="user">The user.</param>
+            <returns>A task that represents the update operation.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="user"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Infrastracture.Repositories.UserRepository.RemoveAsync(System.Int32)">
+            <summary>
+            Asynchronously removes an user from the repository.
+            </summary>
+            <param name="id">The identifier of the user.</param>
+            <returns>A task that represents the remove operation. The task result contains value that indicates whether the user has been removed.</returns>
+        </member>
+        <member name="T:News.Infrastracture.Services.EmailService">
+            <summary>
+            Represents a service to send email messages.
+            </summary>
+        </member>
+        <member name="M:News.Infrastracture.Services.EmailService.#ctor(System.String,System.String,System.String,System.String,System.Int32,System.Boolean)">
+            <summary>
+            Initializes the <see cref="T:News.Infrastracture.Services.EmailService"/>.
+            </summary>
+            <param name="name">The name of the service sending emails.</param>
+            <param name="emailAddress">The email address of the service.</param>
+            <param name="password">The password of the email address.</param>
+            <param name="address">The address of the email server.</param>
+            <param name="port">The port of the email server.</param>
+            <param name="useSsl">The value that indicates whether the ssl connection should be established.</param>
+        </member>
+        <member name="M:News.Infrastracture.Services.EmailService.SendAsync(System.String,System.String,System.String,System.String)">
+            <summary>
+            Asynchronously send a message.
+            </summary>
+            <param name="name">The name of the mailbox.</param>
+            <param name="emailAddress">The address of the mailbox.</param>
+            <param name="subject">The subject of the message.</param>
+            <param name="message">The message.</param>
+            <returns>A task that represents the asynchronous send operation.</returns>
+        </member>
+        <member name="M:News.Infrastracture.Services.EmailService.Dispose">
+            <summary>
+            Releases all resources used by the <see cref="T:News.Infrastracture.Services.EmailService"/>.
+            </summary>
+        </member>
+        <member name="T:News.Infrastracture.Services.ImageService">
+            <summary>
+            Represents a service to store images of a news portal.
+            </summary>
+        </member>
+        <member name="M:News.Infrastracture.Services.ImageService.#ctor(System.String)">
+            <summary>
+            Initializes the <see cref="T:News.Infrastracture.Services.ImageService"/>.
+            </summary>
+            <param name="directory">The directory to store the images.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="directory"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Infrastracture.Services.ImageService.Add(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Adds an image to the news portal.
+            </summary>
+            <param name="formFile">The file .</param>
+            <returns>The file name of the image.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="formFile"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="T:News.Infrastracture.Services.ModelFactory">
+            <summary>
+            Represents a service of creation of data models of a news portal.
+            </summary>
+        </member>
+        <member name="M:News.Infrastracture.Services.ModelFactory.CreateStory">
+            <summary>
+            Creates an <see cref="T:News.Abstractions.Models.IStoryModel"/>.
+            </summary>
+            <returns>An <see cref="T:News.Abstractions.Models.IStoryModel"/>.</returns>
+        </member>
+        <member name="M:News.Infrastracture.Services.ModelFactory.CreateUser">
+            <summary>
+            Creates an <see cref="T:News.Abstractions.Models.IUserModel"/>.
+            </summary>
+            <returns>An <see cref="T:News.Abstractions.Models.IUserModel"/>.</returns>
+        </member>
+        <member name="T:News.Infrastracture.Services.PasswordService">
+            <summary>
+            Represents a service to generate random passwords.
+            </summary>
+        </member>
+        <member name="M:News.Infrastracture.Services.PasswordService.#ctor(System.Int32)">
+            <summary>
+            Initializes the <see cref="T:News.Infrastracture.Services.PasswordService"/>.
+            </summary>
+            <param name="length">The length of passwords.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="length"/> is less than 1.</exception>
+        </member>
+        <member name="M:News.Infrastracture.Services.PasswordService.Generate">
+            <summary>
+            Generates a random password.
+            </summary>
+        </member>
+        <member name="T:News.Infrastracture.Services.StoryService">
+            <summary>
+            Represents a story management service base of a news portal.
+            </summary>
+        </member>
+        <member name="M:News.Infrastracture.Services.StoryService.#ctor(News.Abstractions.Repositories.IStoryRepository{System.Int32})">
+            <summary>
+            Initializes the <see cref="T:News.Infrastracture.Services.StoryService"/>.
+            </summary>
+            <param name="repository">The repository of the stories of the news portal.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="repository"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Infrastracture.Services.StoryService.AddAsync(News.Abstractions.Models.IStoryModel)">
+            <summary>
+            Asynchronously adds a new story to the news portal.
+            </summary>
+            <param name="model">The model of the story.</param>
+            <returns>A task that represents the add operation. The task result contains the story.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="model"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Infrastracture.Services.StoryService.GetAsync">
+            <summary>
+            Asynchronously gets stories from the news portal.
+            </summary>
+            <returns>A task that represents the get operation. The task result contains the stories.</returns>
+        </member>
+        <member name="M:News.Infrastracture.Services.StoryService.GetAsync(System.Int32)">
+            <summary>
+            Asynchronously gets a story from the news portal.
+            </summary>
+            <param name="id">The identifier of the story.</param>
+            <returns>A task that represents the get operation. The task result contains the story.</returns>
+        </member>
+        <member name="M:News.Infrastracture.Services.StoryService.ChangeAsync(System.Int32,News.Abstractions.Models.IStoryModel)">
+            <summary>
+            Asynchronously changes a story in the news portal.
+            </summary>
+            <param name="id">The identifier of the story.</param>
+            <param name="model">The new model of the story.</param>
+            <returns>A task that represents the change operation. The task result contains value that indicates whether the story has been changed.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="model"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Infrastracture.Services.StoryService.RemoveAsync(System.Int32)">
+            <summary>
+            Asynchronously removes a story from the news portal.
+            </summary>
+            <param name="id">The identifier of the story.</param>
+            <returns>A task that represents the remove operation. The task result contains value that indicates whether the story has been removed.</returns>
+        </member>
+        <member name="T:News.Infrastracture.Services.UserEmailConfirmationService">
+            <summary>
+            Represents a service to control user email confirmation.
+            </summary>
+        </member>
+        <member name="M:News.Infrastracture.Services.UserEmailConfirmationService.#ctor(News.Infrastracture.DataContexts.DataContext,News.Abstractions.Repositories.IUserRepository{System.Int32},News.Infrastracture.Services.EmailService,System.String)">
+            <summary>
+            Initializes the <see cref="T:News.Infrastracture.Services.UserEmailConfirmationService"/>.
+            </summary>
+            <param name="dataContext">The <see cref="T:News.Infrastracture.DataContexts.DataContext"/> of data of the news portal.</param>
+            <param name="userRepository">The repository of the users of the news portal.</param>
+            <param name="emailService">The <see cref="T:News.Infrastracture.Services.EmailService"/> of the news portal.</param>
+            <param name="controllerUrl">The URL of the controller of email confirmations.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="dataContext"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="userRepository"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="emailService"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="controllerUrl"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Infrastracture.Services.UserEmailConfirmationService.AddEmailConfirmation(News.Infrastracture.Entities.User,System.String)">
+            <summary>
+            Adds a user whose email is to be confirmed.
+            </summary>
+            <param name="user">The user.</param>
+            <param name="password">The password of the user.</param>
+            <returns>The identifier of the confirmation.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="user"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="password"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Infrastracture.Services.UserEmailConfirmationService.ConfirmAsync(System.String)">
+            <summary>
+            Asynchronously confirms a user email.
+            </summary>
+            <param name="id">The identifier of the email confirmation.</param>
+            <returns>A task that represents the confirm operation. The task result contains the value that indicates whether the email has been confirmed.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="id"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="T:News.Infrastracture.Services.UserService">
+            <summary>
+            Represents a user management service base of a news portal.
+            </summary>
+        </member>
+        <member name="M:News.Infrastracture.Services.UserService.#ctor(News.Abstractions.Repositories.IUserRepository{System.Int32},News.Infrastracture.Services.PasswordService,News.Infrastracture.Services.UserEmailConfirmationService)">
+            <summary>
+            Initializes the <see cref="T:News.Infrastracture.Services.UserService"/>.
+            </summary>
+            <param name="repository">The repository of the users of the news portal.</param>
+            <param name="passwordService">The <see cref="T:News.Infrastracture.Services.PasswordService"/> of the news portal.</param>
+            <param name="userEmailConfirmationService">The <see cref="T:News.Infrastracture.Services.UserEmailConfirmationService"/> of the news portal.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="repository"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="passwordService"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="userEmailConfirmationService"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Infrastracture.Services.UserService.AddAsync(News.Abstractions.Models.IUserModel)">
+            <summary>
+            Asynchronously adds a new user to the news portal.
+            </summary>
+            <param name="model">The model of the user.</param>
+            <returns>A task that represents the add operation. The task result contains the user.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="model"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Infrastracture.Services.UserService.GetByAuthorizationDataAsync(System.String,System.String)">
+            <summary>
+            Asynchronously gets a user by a login and a password.
+            </summary>
+            <param name="login">The login.</param>
+            <param name="password">The password.</param>
+            <returns>A task that represents the get operation. The task result contains the user.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="login"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="password"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Infrastracture.Services.UserService.GetAsync(News.Abstractions.ValueTypes.UserSortKind,System.Int32,System.Int32,System.String)">
+            <summary>
+            Asynchronously gets a number of users filterd by a search string from the news portal.
+            </summary>
+            <param name="sortKind">A <see cref="T:News.Abstractions.ValueTypes.UserSortKind"/> that specifies the kind of sorting of getting users.</param>
+            <param name="offset">The number of the first of sorted users to get.</param>
+            <param name="count">The number of users to get.</param>
+            <param name="search">The search string.</param>
+            <returns>A task that represents the get operation. The task result contains the users.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="sortKind"/> is out of range of valid values.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="offset"/> is less than 0.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="count"/> is less than 0.</exception>
+        </member>
+        <member name="M:News.Infrastracture.Services.UserService.ChangeAsync(System.Int32,News.Abstractions.Models.IUserModel)">
+            <summary>
+            Asynchronously changes a user in the news portal.
+            </summary>
+            <param name="id">The identifier of the user.</param>
+            <param name="model">The new model of the user.</param>
+            <returns>A task that represents the change operation. If the task result is <see langword="true"/> the user has been changed; if the task result is <see langword="null"/> the user was not found; otherwise, the user with the specified email or login already exists.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="model"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:News.Infrastracture.Services.UserService.RemoveAsync(System.Int32)">
+            <summary>
+            Asynchronously removes a user from the news portal.
+            </summary>
+            <param name="id">The identifier of the user.</param>
+            <returns>A task that represents the remove operation. The task result contains value that indicates whether the user has been removed.</returns>
+        </member>
+    </members>
+</doc>

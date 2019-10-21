@@ -1,0 +1,341 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>News.WebAPI</name>
+    </assembly>
+    <members>
+        <member name="T:News.WebAPI.Controllers.ImageController">
+            <summary>
+            Represents a controller of images of the news portal.
+            </summary>
+        </member>
+        <member name="M:News.WebAPI.Controllers.ImageController.#ctor(News.Infrastracture.Services.ImageService)">
+            <summary>
+            Initializes the <see cref="T:News.WebAPI.Controllers.ImageController"/>
+            </summary>
+            <param name="imageService">The <see cref="T:News.Infrastracture.Services.ImageService"/> of the news portal.</param>
+        </member>
+        <member name="M:News.WebAPI.Controllers.ImageController.Post(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Adds an image to the news portal.
+            </summary>
+            <param name="formFile">The file that represents the image.</param>
+            <returns>The name of the file that represents the image in the server.</returns>
+            <response code="200">The image was successfully uploaded to the server.</response>
+        </member>
+        <member name="T:News.WebAPI.Controllers.StoryController">
+            <summary>
+            Represents a controller of stories of the news portal.
+            </summary>
+        </member>
+        <member name="M:News.WebAPI.Controllers.StoryController.#ctor(News.Abstractions.Services.IModelFactory,News.Abstractions.Services.IStoryService{System.Int32})">
+            <summary>
+            Initializes the <see cref="T:News.WebAPI.Controllers.StoryController"/>.
+            </summary>
+            <param name="modelFactory">An <see cref="T:News.Abstractions.Services.IModelFactory"/> of the models of the news portal.</param>
+            <param name="storyService">An <see cref="T:News.Abstractions.Services.IStoryService`1"/> of the news portal.</param>
+        </member>
+        <member name="M:News.WebAPI.Controllers.StoryController.Get">
+            <summary>
+            Gets the stories of the news portal without the text.
+            </summary>
+            <returns>The stories of the news portal without the text.</returns>
+            <response code="200">The stories were successfully gotten.</response>
+        </member>
+        <member name="M:News.WebAPI.Controllers.StoryController.Get(System.Int32)">
+            <summary>
+            Gets a story.
+            </summary>
+            <param name="id">The identifier of the story.</param>
+            <returns>The story.</returns>
+            <response code="200">The story was successfully gotten.</response>
+            <response code="404">The story was not found.</response>
+        </member>
+        <member name="M:News.WebAPI.Controllers.StoryController.Post(News.WebAPI.Models.StoryDataModel)">
+            <summary>
+            Adds a new story to the news portal.
+            </summary>
+            <param name="data">The data of the story.</param>
+            <returns>The identifier of the story.</returns>
+            <response code="200">The story was successfully added.</response>
+            <response code="400">title or summary or text or pictureUrl is null.</response>
+        </member>
+        <member name="M:News.WebAPI.Controllers.StoryController.Put(System.Int32,News.WebAPI.Models.StoryDataModel)">
+            <summary>
+            Changes the data of a story.
+            </summary>
+            <param name="id">The identifier of the story.</param>
+            <param name="data">The new data of the story.</param>
+            <response code="200">The data were successfully changed.</response>
+            <response code="404">The story was not found.</response>
+            <response code="400">title or summary or text or pictureUrl is null.</response>
+        </member>
+        <member name="M:News.WebAPI.Controllers.StoryController.Delete(System.Int32)">
+            <summary>
+            Deletes a story from the news portal.
+            </summary>
+            <param name="id">The identifier of the story.</param>
+            <response code="200">The story was successfully deleted.</response>
+        </member>
+        <member name="T:News.WebAPI.Controllers.UserController">
+            <summary>
+            Represents a controller of users of the news portal.
+            </summary>
+        </member>
+        <member name="M:News.WebAPI.Controllers.UserController.#ctor(News.Abstractions.Services.IModelFactory,News.Abstractions.Services.IUserService{System.Int32})">
+            <summary>
+            Initializes the <see cref="T:News.WebAPI.Controllers.UserController"/>.
+            </summary>
+            <param name="modelFactory">An <see cref="T:News.Abstractions.Services.IModelFactory"/> of models of the news portal.</param>
+            <param name="userService">An <see cref="T:News.Abstractions.Services.IUserService`1"/> of the news portal.</param>
+        </member>
+        <member name="M:News.WebAPI.Controllers.UserController.Get(News.Abstractions.ValueTypes.UserSortKind,System.Int32,System.Int32,System.String)">
+            <summary>
+            Gets the users of the news portal.
+            </summary>
+            <param name="sortKind">A value that specifies the kind of sorting of getting users.</param>
+            <param name="offset">The number of the first of sorted users to get.</param>
+            <param name="count">The number of users to get.</param>
+            <param name="search">The search string.</param>
+            <returns>The users of the news portal.</returns>
+            <response code="200">The stories were successfully gotten.</response>
+            <response code="400">sortKind is out of range of valid values or offset is less than 0 or count is less than 0.</response>
+        </member>
+        <member name="M:News.WebAPI.Controllers.UserController.Post(News.WebAPI.Models.UserDataModel)">
+            <summary>
+            Adds a new user to the news portal.
+            </summary>
+            <param name="data">The data of the user.</param>
+            <returns>The identifier of the user.</returns>
+            <response code="200">The user was successfully added.</response>
+            <response code="400">email of login is null or the user with the specified email or login already exists.</response>
+        </member>
+        <member name="M:News.WebAPI.Controllers.UserController.Put(System.Int32,News.WebAPI.Models.UserDataModel)">
+            <summary>
+            Changes the data of a user.
+            </summary>
+            <param name="id">The identifier of the user.</param>
+            <param name="data">The new data of the user.</param>
+            <response code="200">The data were successfully changed.</response>
+            <response code="404">The user was not found.</response>
+            <response code="400">email of login is null or the user with the specified email or login already exists.</response>
+        </member>
+        <member name="M:News.WebAPI.Controllers.UserController.Delete(System.Int32)">
+            <summary>
+            Deletes a user from the news portal.
+            </summary>
+            <param name="id">The identifier of the user.</param>
+            <response code="200">The user was successfully deleted.</response>
+        </member>
+        <member name="T:News.WebAPI.Controllers.UserEmailConfirmationController">
+            <summary>
+            Represents a controller of user email confirmations.
+            </summary>
+        </member>
+        <member name="M:News.WebAPI.Controllers.UserEmailConfirmationController.#ctor(News.Infrastracture.Services.UserEmailConfirmationService)">
+            <summary>
+            Initializes the <see cref="T:News.WebAPI.Controllers.UserEmailConfirmationController"/>.
+            </summary>
+            <param name="userEmailConfirmationService">A <see cref="T:News.Infrastracture.Services.UserEmailConfirmationService"/> of the news portal.</param>
+        </member>
+        <member name="M:News.WebAPI.Controllers.UserEmailConfirmationController.Get(System.String)">
+            <summary>
+            Confirms an email of a user by an identifier of the confirmation.
+            </summary>
+            <param name="id">The identifier of the configrmation.</param>
+            <response code="200">The email was successfully confirmed.</response>
+            <response code="404">The confirmation with the specified identifier was not found.</response>
+        </member>
+        <member name="T:News.WebAPI.Controllers.UserTokenController">
+            <summary>
+            Represents a controller of user tokens.
+            </summary>
+        </member>
+        <member name="M:News.WebAPI.Controllers.UserTokenController.#ctor(Microsoft.Extensions.Configuration.IConfiguration,News.Abstractions.Services.IUserService{System.Int32})">
+            <summary>
+            Initializes the <see cref="T:News.WebAPI.Controllers.UserTokenController"/>.
+            </summary>
+            <param name="configuration">An <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/> of the news portal.</param>
+            <param name="userService">An <see cref="T:News.Abstractions.Services.IUserService`1"/> of the news portal.</param>
+        </member>
+        <member name="M:News.WebAPI.Controllers.UserTokenController.Post(News.WebAPI.Models.UserAuthDataModel)">
+            <summary>
+            Authorizes a user by authorization data.
+            </summary>
+            <param name="data">The authorization data of the user.</param>
+            <returns>The authorization token of the user.</returns>
+            <response code="200">The user was successfully authorized.</response>
+            <response code="401">The user was not authorized.</response>
+            <response code="400">login or password is null.</response>
+        </member>
+        <member name="T:News.WebAPI.Models.StoryDataModel">
+            <summary>
+            Represents a model of data of a story of the news portal.
+            </summary>
+        </member>
+        <member name="P:News.WebAPI.Models.StoryDataModel.Title">
+            <summary>
+            Gets or sets the title of the story.
+            </summary>
+        </member>
+        <member name="P:News.WebAPI.Models.StoryDataModel.Summary">
+            <summary>
+            Gets or sets the summary of the story.
+            </summary>
+        </member>
+        <member name="P:News.WebAPI.Models.StoryDataModel.Text">
+            <summary>
+            Gets or sets the text of the story.
+            </summary>
+        </member>
+        <member name="P:News.WebAPI.Models.StoryDataModel.PictureUrl">
+            <summary>
+            Gets or sets the URL of the picture describing the story.
+            </summary>
+        </member>
+        <member name="T:News.WebAPI.Models.StoryEntityModel">
+            <summary>
+            Represents a model of a story of the news portal.
+            </summary>
+        </member>
+        <member name="M:News.WebAPI.Models.StoryEntityModel.#ctor(System.Int32)">
+            <summary>
+            Initailizes the <see cref="T:News.WebAPI.Models.StoryEntityModel"/>.
+            </summary>
+            <param name="id">The identitifier of the story.</param>
+        </member>
+        <member name="P:News.WebAPI.Models.StoryEntityModel.Id">
+            <summary>
+            Gets the identifier of the story.
+            </summary>
+        </member>
+        <member name="P:News.WebAPI.Models.StoryEntityModel.Data">
+            <summary>
+            Gets the data of the story.
+            </summary>
+        </member>
+        <member name="T:News.WebAPI.Models.UserAuthDataModel">
+            <summary>
+            Represents a model of authorization data of a user of the news portal.
+            </summary>
+        </member>
+        <member name="P:News.WebAPI.Models.UserAuthDataModel.Login">
+            <summary>
+            Gets the login of the user.
+            </summary>
+        </member>
+        <member name="P:News.WebAPI.Models.UserAuthDataModel.Password">
+            <summary>
+            Gets the password of the user.
+            </summary>
+        </member>
+        <member name="T:News.WebAPI.Models.UserDataModel">
+            <summary>
+            Represents a model of data of a user.
+            </summary>
+        </member>
+        <member name="P:News.WebAPI.Models.UserDataModel.Email">
+            <summary>
+            Gets or sets the login of the user.
+            </summary>
+        </member>
+        <member name="P:News.WebAPI.Models.UserDataModel.Login">
+            <summary>
+            Gets or sets the login of the user.
+            </summary>
+        </member>
+        <member name="P:News.WebAPI.Models.UserDataModel.Surname">
+            <summary>
+            Gets or sets the surname of the user.
+            </summary>
+        </member>
+        <member name="P:News.WebAPI.Models.UserDataModel.Name">
+            <summary>
+            Gets or sets the name of the user.
+            </summary>
+        </member>
+        <member name="P:News.WebAPI.Models.UserDataModel.Patronymic">
+            <summary>
+            Gets or sets the patronymic of the user.
+            </summary>
+        </member>
+        <member name="P:News.WebAPI.Models.UserDataModel.BirthDate">
+            <summary>
+            Gets or sets the date of birth of the user.
+            </summary>
+        </member>
+        <member name="P:News.WebAPI.Models.UserDataModel.Role">
+            <summary>
+            Gets or sets the role of the user.
+            </summary>
+        </member>
+        <member name="T:News.WebAPI.Models.UserEntityModel">
+            <summary>
+            Represents a model of a user of the news portal.
+            </summary>
+        </member>
+        <member name="M:News.WebAPI.Models.UserEntityModel.#ctor(System.Int32)">
+            <summary>
+            Initializes the <see cref="T:News.WebAPI.Models.UserEntityModel"/>.
+            </summary>
+            <param name="id">The identifier of the user.</param>
+        </member>
+        <member name="P:News.WebAPI.Models.UserEntityModel.Id">
+            <summary>
+            Gets the identifier of the user.
+            </summary>
+        </member>
+        <member name="P:News.WebAPI.Models.UserEntityModel.Data">
+            <summary>
+            Gets the data of the user.
+            </summary>
+        </member>
+        <member name="T:News.WebAPI.Program">
+            <summary>
+            Represents the program.
+            </summary>
+        </member>
+        <member name="M:News.WebAPI.Program.Main(System.String[])">
+            <summary>
+            Starts the program.
+            </summary>
+            <param name="args">The arguments of the program start.</param>
+        </member>
+        <member name="M:News.WebAPI.Program.CreateWebHostBuilder(System.String[])">
+            <summary>
+            Creates a web host builder.
+            </summary>
+            <param name="args">The arguments of the program start.</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Hosting.IWebHostBuilder"/>.</returns>
+        </member>
+        <member name="T:News.WebAPI.Startup">
+            <summary>
+            Represents a configurator of the news portal server.
+            </summary>
+        </member>
+        <member name="M:News.WebAPI.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes the <see cref="T:News.WebAPI.Startup"/>.
+            </summary>
+            <param name="configuration">The configuration of the server.</param>
+        </member>
+        <member name="P:News.WebAPI.Startup.Configuration">
+            <summary>
+            Gets the configuration of the server.
+            </summary>
+        </member>
+        <member name="M:News.WebAPI.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configures the services of the server.
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+        <member name="M:News.WebAPI.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Configures the pipeline of HTTP requests handling.
+            </summary>
+            <param name="app">The configurator of the application.</param>
+            <param name="env">The environment of the application.</param>
+        </member>
+    </members>
+</doc>
